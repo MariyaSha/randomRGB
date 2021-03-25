@@ -104,7 +104,7 @@ li {
     margin: 5px 0 0 -19px;
 }
 
-#color div {
+#color .ball {
     width: 50px;
     height: 50px;
     display: inline-block;

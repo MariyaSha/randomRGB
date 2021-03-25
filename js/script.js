@@ -1,19 +1,26 @@
-//creating an empty string variable to locate each div
-let colorBallsHTML=''; 
+const d = document; 
 
-//functions to create a random number between 0 to 256.
-function randomNumber() {
+//create a random number between 0 to 256.
+const randomNumber = () => {
     return Math.floor(Math.random() * 256 );
 }
 
-//function that returns rgb(?,?,?) values.
-function randomRGB () {
+//returns rgb(R,G,B) values, where R,G,B between 0 and 256 
+const randomRGB = () => {
     return `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
 }
 
-//The random rgb values become the background colours of 10 different divs
-for (let i = 0; i < 10; i++) {
-    colorBallsHTML += `<div style="background-color: ${randomRGB()}"></div>`;
-}
+//The random rgb values become the background colours of n different divs
+const appendBalls = (numOfBalls) => {  
+    let i = 0;
+    //Believe it or not while has better performance than for of, in and each. 
+    while (i < numOfBalls) {
+        const ball = d.createElement("div");
+        ball.classList.add("ball");
+        ball.style.backgroundColor = randomRGB();
+        d.body.appendChild(ball);
+        i++;
+    }; 
+};
 
-document.write(colorBallsHTML);
+appendBalls(10);
