@@ -13,14 +13,16 @@ const randomRGB = () => {
 //The random rgb values become the background colours of n different divs
 const appendBalls = (numOfBalls) => {  
     let i = 0;
+    const fragment = new DocumentFragment;
     //Believe it or not while has better performance than for of, in and each. 
     while (i < numOfBalls) {
         const ball = d.createElement("div");
         ball.classList.add("ball");
         ball.style.backgroundColor = randomRGB();
-        d.body.appendChild(ball);
+        fragment.appendChild(ball);
         i++;
     }; 
+    d.body.appendChild(fragment);
 };
 
-appendBalls(10);
+appendBalls(500);
