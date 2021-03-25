@@ -3,7 +3,7 @@
 /*General*/
 body {
     background: #fff;
-    max-width: 980px;
+    max-width: 900px;
     margin: 50px auto;
     padding: 0 20px;
     font: Helvetica Neue, Helvectica, Arial, serif;
@@ -11,6 +11,19 @@ body {
     font-size: 1em;
     line-height: 1.5em;
     color: #8d9aa5;
+}
+
+#color .ball {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 5px;
+    transition: transform 400ms;
+    box-shadow: 3px 3px 6px 0px rgb(112 7 132 / 67%)
+}
+#color .ball:hover{
+    transform: rotateY(180deg);
 }
 
 a {
@@ -104,13 +117,7 @@ li {
     margin: 5px 0 0 -19px;
 }
 
-#color div {
-    width: 50px;
-    height: 50px;
-    display: inline-block;
-    border-radius: 50%;
-    margin: 5px;
-}
+
 
 span {
     color: red;

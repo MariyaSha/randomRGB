@@ -1,28 +1,28 @@
-//creating an empty string variable.
-var html = '';
-//creating an empty variable.
-var rgbColour;
+const d = document; 
 
-//functions to create a random number between 0 to 256.
-function randomNumber() {
+//create a random number between 0 to 256.
+const randomNumber = () => {
     return Math.floor(Math.random() * 256 );
 }
 
-//function that returns rgb(?,?,?) values.
-function randomRgb () {
-    var colour = 'rgb(';
-
-    colour += randomNumber() + ',';
-    colour += randomNumber() + ',';
-    colour += randomNumber() + ')';
-
-    return colour;
+//returns rgb(R,G,B) values, where R,G,B between 0 and 256 
+const randomRGB = () => {
+    return `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
 }
 
-//The random rgb values become the background colours of 10 different divs.
-for (var i = 0; i < 10; i += 1) {
-    rgbColour = randomRgb();
-    html += '<div style="background-color:' + rgbColour + '"></div>';
-}
+//The random rgb values become the background colours of n different divs
+const appendBalls = (numOfBalls) => {  
+    let i = 0;
+    const fragment = new DocumentFragment;
+    //Believe it or not while has better performance than for of, in and each. 
+    while (i < numOfBalls) {
+        const ball = d.createElement("div");
+        ball.classList.add("ball");
+        ball.style.backgroundColor = randomRGB();
+        fragment.appendChild(ball);
+        i++;
+    }; 
+    d.body.appendChild(fragment);
+};
 
-document.write(html);
+appendBalls(495);
