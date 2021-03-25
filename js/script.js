@@ -25,4 +25,4 @@ const appendBalls = (numOfBalls) => {
     d.body.appendChild(fragment);
 };
 
-appendBalls(500);
+appendBalls(495);
